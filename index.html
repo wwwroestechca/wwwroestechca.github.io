@@ -1,35 +1,682 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UNDER CONSTRUCTION</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roes Technology Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #8B0000;
+      --crimson-light: #a31515;
+      --crimson-pale: #fdf3f3;
+      --charcoal: #1a1a1a;
+      --mid: #4a4a4a;
+      --soft: #f7f5f2;
+      --white: #ffffff;
+      --border: #e2ddd8;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 106px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 78px;
+      display: block;
+    }
+
+    .nav-logo-divider {
+      width: 2px;
+      height: 48px;
+      background: var(--crimson);
+      opacity: 0.25;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--crimson); }
+
+    .nav-cta {
+      background: var(--crimson);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--crimson-light) !important; color: var(--white) !important; }
+
+    /* HERO */
+    .hero {
+      padding-top: 106px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 5% 6rem 8%;
+      background: var(--soft);
+      position: relative;
+    }
+
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--crimson);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--mid);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--crimson-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-bottom: 2px solid var(--charcoal);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--crimson); border-color: var(--crimson); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: var(--white);
+      border-left: 4px solid var(--crimson);
+      padding: 1rem 1.25rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      max-width: 220px;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--crimson);
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .hero-badge span {
+      font-size: 0.8rem;
+      color: var(--mid);
+      margin-top: 0.1rem;
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* VALUES STRIP */
+    .values-strip {
+      background: var(--crimson);
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .value-item {
+      flex: 1;
+      max-width: 340px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .value-item:last-child { border-right: none; }
+
+    .value-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-item h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .value-item p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .about-images {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-content {
+      padding: 6rem 8% 6rem 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--mid);
+      margin-bottom: 1rem;
+    }
+
+    /* SERVICES */
+    .services {
+      background: var(--soft);
+      padding: 6rem 8%;
+    }
+
+    .services-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--crimson);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.25s ease;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .service-card:hover::before { transform: scaleY(1); }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    /* GALLERY STRIP */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 380px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* CTA SECTION */
+    .cta-section {
+      padding: 7rem 8%;
+      background: var(--charcoal);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .cta-section .section-title { color: var(--white); }
+    .cta-section .section-body { color: rgba(255,255,255,0.65); }
+
+    .cta-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background: linear-gradient(135deg,#f7fbff,#e6f0ff);
-      color: #0b3a66;
+      font-size: 1.3rem;
+      flex-shrink: 0;
     }
-    .card {
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(11,58,102,0.12);
-      text-align: center;
+
+    .contact-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 0.2rem;
     }
-    h1 { margin: 0 0 0.5rem; font-size: 2rem; }
-    p { margin: 0; color: #235; opacity: 0.9; }
+
+    .contact-value {
+      font-size: 1.1rem;
+      color: var(--white);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value:hover { color: #f8a0a0; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer img { height: 36px; opacity: 0.7; }
+
+    footer p { font-size: 0.82rem; }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+    footer a:hover { color: var(--white); }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { height: 50vw; }
+      .hero-left { padding: 4rem 6%; }
+      .about { grid-template-columns: 1fr; }
+      .about-images { height: 55vw; }
+      .cta-section { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; height: auto; }
+      .gallery-item { height: 260px; }
+      nav { padding: 0 4%; }
+      .nav-links { gap: 1.2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links li:not(:last-child) { display: none; }
+      .values-strip { flex-direction: column; }
+      .value-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+    }
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <h1>UNDER CONSTRUCTION</h1>
-    <p>This is a minimal index.html for testing and development.</p>
-  </main>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#"><img src="logo.png" alt="Roes Technology" /><div class="nav-logo-divider"></div><span class="nav-logo-name">Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Serving Kitchener-Waterloo &amp; Surrounding Region</p>
+      <h1 class="hero-title">Tech help you can <em>actually</em> trust.</h1>
+      <p class="hero-sub">Roes Technology Solutions brings friendly, expert tech advice and services to Kitchener-Waterloo and the surrounding region. Whether you need help with a phone, tablet, laptop, or any other device — we've got you covered, at a fair price. Fully Canadian owned and operated, we aim to provide a service which is personally suited to your needs.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a Consultation</a>
+        <a href="#services" class="btn-secondary">See Our Services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/stockimage11.jpg" alt="Friendly tech consultation" />
+      <div class="hero-badge">
+        <strong>Friendly Service</strong>
+        <span>From someone you can trust.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES STRIP -->
+  <div class="values-strip">
+    <div class="value-item">
+      <div class="value-icon">🤝</div>
+      <h3>Trust</h3>
+      <p>We treat your phones, tablets, computers, and data with the same care we'd give our own.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">⚖️</div>
+      <h3>Integrity</h3>
+      <p>Honest advice, no upselling — only what you genuinely need.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-icon">💰</div>
+      <h3>Fair Pricing</h3>
+      <p>Quality tech consulting shouldn't break the bank. It won't here.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-images">
+      <img class="about-img-main" src="images/stockimage9.jpg" alt="Tech guidance session" />
+    </div>
+    <div class="about-content fade-in">
+      <p class="section-eyebrow">Who We Are</p>
+      <h2 class="section-title">All your devices, made simple.</h2>
+      <p class="section-body">Roes Technology Solutions was built on a simple idea: everyone deserves reliable tech support without the jargon, the runaround, or the inflated bill. We proudly serve individuals and families throughout the Kitchener-Waterloo region and surrounding communities.</p>
+      <p class="section-body">From helping you pick the right phone or tablet, to setting up your new laptop, securing your accounts, and keeping your memories backed up — we're your local tech partner for all your devices.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-header fade-in">
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-title">Services built around you</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <h3>Help Purchasing A New Device</h3>
+        <p>Unsure which phone, tablet, laptop, or other device is right for you? We'll cut through the noise and recommend the perfect fit for your needs and budget.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Setting Up A New Device</h3>
+        <p>We'll get your new phone, tablet, or computer up and running exactly how you want it — accounts, apps, preferences, updated and configured to suit your needs.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Data Transfer</h3>
+        <p>Switching phones, upgrading your tablet, or moving to a new computer? We migrate your files, photos, contacts, and settings safely so nothing gets left behind.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Support &amp; Troubleshooting</h3>
+        <p>Something acting up? We diagnose and fix issues quickly, explaining what happened in plain language — no tech-speak required.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Device Security & Virus Protection</h3>
+        <p>We help secure your personal computer, devices, and data by guiding you through practical, easy-to-follow steps for preventing, detecting, and removing viruses and malware.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Document Digitization</h3>
+        <p>Turn your paper documents into organized, searchable digital files — perfect for preserving important records and photos.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Personal Backup Solutions</h3>
+        <p>We set up reliable backup systems for your data so you're always protected — locally, in the cloud, or both.</p>
+      </div>
+      <div class="service-card fade-in">
+        <h3>Don't see what you're looking for?</h3>
+        <p>This isn't an exhaustive list — reach out anyway. If it involves technology, there's a good chance we can help.</p>
+        <a href="#contact" class="btn-secondary" style="display:inline-block;margin-top:0.75rem;">Get in touch →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="images/stockimage4.jpg" alt="Typing at a laptop" />
+    </div>
+    <div class="gallery-item">
+      <img src="images/stockimage8.jpg" alt="Typing at a laptop" />
+    </div>
+    <div class="gallery-item">
+      <img src="images/stockimage6.jpg" alt="Tech consulting session" />
+    </div>
+  </div>
+
+  <!-- CTA / CONTACT -->
+  <section class="cta-section" id="contact">
+    <div>
+      <p class="section-eyebrow" style="color: rgba(255,255,255,0.5);">Get in Touch</p>
+      <h2 class="section-title">Ready to get started?</h2>
+      <p class="section-body">We proudly serve Kitchener-Waterloo and the surrounding region. Reach out and we'll get back to you promptly with a friendly, no-pressure response.</p>
+    </div>
+    <div class="cta-contact">
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email Us</div>
+          <a href="mailto:contact@roestech.ca" class="contact-value">contact@roestech.ca</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Call Us</div>
+          <a href="tel:2263367136" class="contact-value">226-336-7136</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+      <footer>
+    <img src="logo-blk.png" alt="Roes Technology" />
+    <p>2026 Roes Technology, based in Kitchener, Ontario</p>
+    <div>
+      <a href="#about">About</a> &nbsp;·&nbsp;
+      <a href="#services">Services</a> &nbsp;·&nbsp;
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
-
