@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Roes Technology — Kitchener-Waterloo Tech Support</title>
+  <meta name="description" content="Get in touch with Roes Technology. Call, email, or send a message — friendly, no-pressure tech help in the Kitchener-Waterloo region."/>
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://roestech.ca/contact.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #8B0000;
+      --crimson-light: #a31515;
+      --crimson-pale: #fdf3f3;
+      --charcoal: #1a1a1a;
+      --mid: #4a4a4a;
+      --soft: #f7f5f2;
+      --white: #ffffff;
+      --border: #e2ddd8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 106px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      text-decoration: none;
+    }
+
+    .nav-logo img { height: 78px; display: block; }
+
+    .nav-logo-divider {
+      width: 2px;
+      height: 48px;
+      background: var(--crimson);
+      opacity: 0.25;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--crimson); }
+    .nav-links a.active { color: var(--crimson); }
+
+    .nav-cta {
+      background: var(--crimson);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--crimson-light) !important; color: var(--white) !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding-top: 106px;
+      background: var(--soft);
+      border-bottom: 2px solid var(--crimson);
+    }
+
+    .page-header-inner {
+      padding: 5rem 8% 4rem;
+      max-width: 760px;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+    }
+
+    .page-intro {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--mid);
+      max-width: 560px;
+    }
+
+    /* CONTACT LAYOUT */
+    .contact-body {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      min-height: 600px;
+    }
+
+    /* DARK SIDEBAR */
+    .contact-sidebar {
+      background: var(--charcoal);
+      padding: 4rem 5% 4rem 8%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .sidebar-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    .direct-contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .direct-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .direct-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .direct-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .direct-value {
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .direct-value:hover { color: #f8a0a0; }
+
+    .service-area-note {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .service-area-note p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    .service-area-note strong {
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* FORM AREA */
+    .contact-form-area {
+      padding: 4rem 8% 4rem 5%;
+      background: var(--white);
+    }
+
+    .form-heading {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .form-sub {
+      font-size: 0.9rem;
+      color: var(--mid);
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-group label .optional {
+      font-weight: 400;
+      color: var(--mid);
+      font-size: 0.78rem;
+      letter-spacing: 0;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--crimson);
+      box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.08);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      padding: 0.85rem 2.25rem;
+      border-radius: 4px;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--crimson-light); transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .privacy-note {
+      font-size: 0.8rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .form-status {
+      display: none;
+      padding: 1rem 1.25rem;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-status.success {
+      display: block;
+      background: #f0faf0;
+      border: 1px solid #a3d9a3;
+      color: #1f5c1f;
+    }
+
+    .form-status.error {
+      display: block;
+      background: var(--crimson-pale);
+      border: 1px solid #f0b0b0;
+      color: var(--crimson);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer img { height: 36px; opacity: 0.7; }
+    footer p { font-size: 0.82rem; }
+
+    footer a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+    footer a:hover { color: var(--white); }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .contact-body { grid-template-columns: 1fr; }
+      .contact-sidebar { padding: 3rem 6%; }
+      .contact-form-area { padding: 3rem 6%; }
+      .nav-links { gap: 1.2rem; }
+      .nav-logo-name { font-size: 1.6rem; }
+      .nav-logo img { height: 58px; }
+      nav { height: 86px; padding: 0 4%; }
+      .page-header { padding-top: 86px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { height: 70px; padding: 0 5%; }
+      .page-header { padding-top: 70px; }
+      .nav-logo img { height: 44px; }
+      .nav-logo-divider { display: none; }
+      .nav-logo-name { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44vw; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 70px; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5% 2rem;
+        gap: 0;
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid var(--border); }
+      .nav-links li:last-child { border-bottom: none; margin-top: 0.5rem; }
+      .nav-links a { display: block; padding: 0.9rem 0; font-size: 1rem; }
+      .nav-cta { display: block; text-align: center; padding: 0.75rem !important; border-radius: 4px; }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        cursor: pointer;
+        padding: 6px;
+        background: none;
+        border: none;
+        flex-shrink: 0;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--charcoal);
+        border-radius: 2px;
+        transition: transform 0.25s, opacity 0.25s;
+      }
+      .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      .form-row { grid-template-columns: 1fr; }
+      .form-submit { flex-direction: column; align-items: flex-start; }
+      .page-header-inner { padding: 3rem 5% 2.5rem; }
+    }
+
+    .hamburger { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="logo.png" alt="Roes Technology" /><div class="nav-logo-divider"></div><span class="nav-logo-name">Solutions & Consulting</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#about" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="contact.html" class="nav-cta active" onclick="closeMenu()">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Get in Touch</p>
+      <h1 class="page-title">We'd love to hear from you.</h1>
+      <p class="page-intro">Whether you have a question, a tech problem, or you're just not sure where to start — reach out. We'll get back to you promptly with a friendly, no-pressure response.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT BODY -->
+  <div class="contact-body">
+
+    <!-- DARK SIDEBAR -->
+    <aside class="contact-sidebar fade-in">
+      <div>
+        <h2 class="sidebar-heading">Prefer to reach out directly?</h2>
+        <p class="sidebar-sub">We're happy to hear from you however is most convenient.</p>
+      </div>
+
+      <div class="direct-contact-list">
+        <div class="direct-item">
+          <div class="direct-icon">✉️</div>
+          <div>
+            <div class="direct-label">Email</div>
+            <a href="mailto:contact@roestech.ca" class="direct-value">contact@roestech.ca</a>
+          </div>
+        </div>
+        <div class="direct-item">
+          <div class="direct-icon">📞</div>
+          <div>
+            <div class="direct-label">Phone</div>
+            <a href="tel:2263367366" class="direct-value">226-336-7366</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-area-note">
+        <p>We proudly serve <strong>Kitchener, Waterloo, Cambridge, Guelph</strong>, and the surrounding communities in the Region of Waterloo.</p>
+      </div>
+    </aside>
+
+    <!-- FORM -->
+    <div class="contact-form-area fade-in">
+      <h2 class="form-heading">Send us a message</h2>
+      <p class="form-sub">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+      <div class="form-status" id="form-status"></div>
+
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a67628ce-29ae-4ec2-95ae-d6cedb684e23" />
+        <input type="hidden" name="subject" value="Contact submission from roestech.ca" />
+        <input type="checkbox" name="botcheck" style="display:none;" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="226-555-0100" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for…" required></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" id="submit-btn">Send Message</button>
+          <p class="privacy-note">Your information is only used to respond to your enquiry and is never shared with third parties.</p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="logo-blk.png" alt="Roes Technology" />
+    <p>&copy; 2026 Roes Technology, based in Kitchener, Ontario</p>
+    <div>
+      <a href="index.html#about">About</a> &nbsp;·&nbsp;
+      <a href="services.html">Services</a> &nbsp;·&nbsp;
+      <a href="contact.html">Contact</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    }
+
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusEl.className = 'form-status';
+      statusEl.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          statusEl.className = 'form-status success';
+          statusEl.textContent = 'Message sent — thank you! We\'ll be in touch shortly.';
+          form.reset();
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch {
+        statusEl.className = 'form-status error';
+        statusEl.textContent = 'Something went wrong. Please try again or email us directly at contact@roestech.ca.';
+      }
+
+      statusEl.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  </script>
+</body>
+</html>
