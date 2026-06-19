@@ -387,25 +387,16 @@
       .contact-body { grid-template-columns: 1fr; }
       .contact-sidebar { order: 2; padding: 3rem 6%; }
       .contact-form-area { order: 1; padding: 3rem 6%; }
-      .nav-links { gap: 1.2rem; }
       .nav-logo-name { font-size: 1.6rem; }
       .nav-logo img { height: 58px; }
       nav { height: 86px; padding: 0 4%; }
       .page-header { padding-top: 86px; }
-    }
-
-    @media (max-width: 600px) {
-      nav { height: 70px; padding: 0 5%; }
-      .page-header { padding-top: 70px; }
-      .nav-logo img { height: 44px; }
-      .nav-logo-divider { display: none; }
-      .nav-logo-name { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44vw; }
 
       .nav-links {
         display: none;
         flex-direction: column;
         position: fixed;
-        top: 70px; left: 0; right: 0;
+        top: 86px; left: 0; right: 0;
         background: rgba(255,255,255,0.98);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--border);
@@ -441,6 +432,15 @@
       .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
       .hamburger.open span:nth-child(2) { opacity: 0; }
       .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    @media (max-width: 600px) {
+      nav { height: 70px; padding: 0 5%; }
+      .page-header { padding-top: 70px; }
+      .nav-logo img { height: 44px; }
+      .nav-logo-divider { display: none; }
+      .nav-logo-name { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 44vw; }
+      .nav-links { top: 70px; }
 
       .form-row { grid-template-columns: 1fr; }
       .form-submit { flex-direction: column; align-items: flex-start; }
