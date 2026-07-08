@@ -383,10 +383,6 @@
     }
 
     .services-list li {
-      display: flex;
-      align-items: baseline;
-      gap: 1.25rem;
-      padding: 1.5rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -394,11 +390,26 @@
       border-top: 1px solid var(--border);
     }
 
+    .service-link {
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
     .service-arrow {
       color: var(--crimson);
       font-size: 1rem;
       flex-shrink: 0;
       line-height: 1.6;
+      transition: transform 0.2s;
+    }
+
+    .service-link:hover .service-arrow {
+      transform: translateX(4px);
     }
 
     .service-list-content h3 {
@@ -406,6 +417,11 @@
       font-weight: 600;
       color: var(--charcoal);
       margin-bottom: 0.2rem;
+      transition: color 0.2s;
+    }
+
+    .service-link:hover .service-list-content h3 {
+      color: var(--crimson);
     }
 
     .service-list-content p {
@@ -678,53 +694,67 @@
     </div>
     <ul class="services-list">
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Help Purchasing A New Device</h3>
-          <p>Expert guidance before you buy — we'll find the right fit for your needs and budget.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Help%20Purchasing%20A%20New%20Device" aria-label="Ask about Help Purchasing A New Device">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Help Purchasing A New Device</h3>
+            <p>Expert guidance before you buy — we'll find the right fit for your needs and budget.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Setting Up A New Device</h3>
-          <p>Configured just the way you want it — accounts, apps, and preferences all sorted.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Setting%20Up%20A%20New%20Device" aria-label="Ask about Setting Up A New Device">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Setting Up A New Device</h3>
+            <p>Configured just the way you want it — accounts, apps, and preferences all sorted.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Data Transfer</h3>
-          <p>Switching devices? We migrate your files, photos, and contacts safely — nothing left behind.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Data%20Transfer" aria-label="Ask about Data Transfer">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Data Transfer</h3>
+            <p>Switching devices? We migrate your files, photos, and contacts safely — nothing left behind.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Support &amp; Troubleshooting</h3>
-          <p>Something acting up? We diagnose and fix issues quickly, in plain language.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Support%20%26%20Troubleshooting" aria-label="Ask about Support & Troubleshooting">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Support &amp; Troubleshooting</h3>
+            <p>Something acting up? We diagnose and fix issues quickly, in plain language.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Device Security &amp; Virus Protection</h3>
-          <p>Practical steps to keep your devices and data safe from threats.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Device%20Security%20%26%20Virus%20Protection" aria-label="Ask about Device Security & Virus Protection">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Device Security &amp; Virus Protection</h3>
+            <p>Practical steps to keep your devices and data safe from threats.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Document Digitization</h3>
-          <p>Paper records turned into organized, searchable digital files.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Document%20Digitization" aria-label="Ask about Document Digitization">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Document Digitization</h3>
+            <p>Paper records turned into organized, searchable digital files.</p>
+          </div>
+        </a>
       </li>
       <li class="fade-in">
-        <span class="service-arrow">→</span>
-        <div class="service-list-content">
-          <h3>Home Technology Setup</h3>
-          <p>We install and configure TVs, sound systems, game systems, and streaming devices so everything works seamlessly.</p>
-        </div>
+        <a class="service-link" href="contact.html?service=Home%20Technology%20Setup" aria-label="Ask about Home Technology Setup">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Home Technology Setup</h3>
+            <p>We install and configure TVs, sound systems, game systems, and streaming devices so everything works seamlessly.</p>
+          </div>
+        </a>
       </li>
     </ul>
     <div class="services-footer fade-in">
