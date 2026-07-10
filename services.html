@@ -46,16 +46,8 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Help Purchasing A New Device",
-          "description": "Recommendations for the right phone, tablet, laptop, or other device for your needs and budget."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Setting Up A New Device",
-          "description": "Setup of new phones, tablets, and computers, including accounts, apps, and preferences."
+          "name": "Device Purchasing & Setup",
+          "description": "Guidance choosing the right phone, tablet, laptop, or other device, plus full setup — accounts, apps, and preferences configured."
         }
       },
       {
@@ -80,6 +72,22 @@
           "@type": "Service",
           "name": "Device Security & Virus Protection",
           "description": "Guidance on preventing, detecting, and removing viruses and malware to keep devices and data secure."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Website Design & Development",
+          "description": "Fast, professional marketing websites for individuals and small businesses, hosted for speed, security, and uptime."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Small Business Device Setup",
+          "description": "Selection and setup of computers, phones, and tablets for small businesses and solo entrepreneurs."
         }
       },
       {
@@ -253,6 +261,21 @@
       padding: 0 8% 5rem;
     }
 
+    .services-group-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      font-weight: 600;
+      margin: 3.5rem 0 0;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .services-group-label:first-child {
+      margin-top: 4rem;
+    }
+
     .service-block {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
@@ -270,12 +293,6 @@
       cursor: pointer;
     }
 
-    .service-block:first-child {
-      border-top: 1px solid var(--border);
-      margin-top: 4rem;
-    }
-
-    /* Crimson left accent line that appears on hover */
     .service-block::before {
       content: '';
       position: absolute;
@@ -546,21 +563,14 @@
   <!-- SERVICES DETAIL -->
   <section class="services-detail">
 
-    <a class="service-block fade-in" href="contact.html?service=Help%20Purchasing%20A%20New%20Device" aria-label="Ask about Help Purchasing A New Device">
-      <div>
-        <h2 class="service-block-name">Help Purchasing A New Device</h2>
-      </div>
-      <div class="service-block-body">
-        <p>Unsure which phone, tablet, laptop, or other device is right for you? We'll cut through the noise and recommend the perfect fit for your needs and budget.</p>
-      </div>
-    </a>
+    <p class="services-group-label fade-in">General Tech Support</p>
 
-    <a class="service-block fade-in" href="contact.html?service=Setting%20Up%20A%20New%20Device" aria-label="Ask about Setting Up A New Device">
+    <a class="service-block fade-in" href="contact.html?service=Device%20Purchasing%20%26%20Setup" aria-label="Ask about Device Purchasing & Setup">
       <div>
-        <h2 class="service-block-name">Setting Up A New Device</h2>
+        <h2 class="service-block-name">Device Purchasing &amp; Setup</h2>
       </div>
       <div class="service-block-body">
-        <p>We'll get your new phone, tablet, or computer up and running exactly how you want it — accounts, apps, preferences, updated and configured to suit your needs.</p>
+        <p>Unsure what to buy, or just got a new phone, tablet, or computer? We'll help you pick the right device for your needs, then get it fully set up — accounts, apps, and preferences configured just the way you want.</p>
       </div>
     </a>
 
@@ -590,6 +600,28 @@
         <p>We help secure your personal computer, devices, and data by guiding you through practical, easy-to-follow steps for preventing, detecting, and removing viruses and malware.</p>
       </div>
     </a>
+
+    <p class="services-group-label fade-in">For Your Business</p>
+
+    <a class="service-block fade-in" href="contact.html?service=Website%20Design%20%26%20Development" aria-label="Ask about Website Design & Development">
+      <div>
+        <h2 class="service-block-name">Website Design &amp; Development</h2>
+      </div>
+      <div class="service-block-body">
+        <p>A professional website doesn't need to be complicated. We build fast, modern marketing sites — perfect for showcasing your business, services, or portfolio — hosted on infrastructure built for speed and near-100% uptime. No bloated platforms, no unnecessary complexity, just a site that works.</p>
+      </div>
+    </a>
+
+    <a class="service-block fade-in" href="contact.html?service=Small%20Business%20Device%20Setup" aria-label="Ask about Small Business Device Setup">
+      <div>
+        <h2 class="service-block-name">Small Business Device Setup</h2>
+      </div>
+      <div class="service-block-body">
+        <p>Starting up or upgrading your small business's tech? We help you choose and set up the computers, phones, and tablets you need — configured securely and correctly from the start. Ideal for solo entrepreneurs and small teams who want it done right, without needing an ongoing IT department.</p>
+      </div>
+    </a>
+
+    <p class="services-group-label fade-in">Home &amp; Family</p>
 
     <a class="service-block fade-in" href="contact.html?service=Document%20Digitization" aria-label="Ask about Document Digitization">
       <div>

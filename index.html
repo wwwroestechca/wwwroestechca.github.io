@@ -38,12 +38,13 @@
     },
     "description": "Technology support, computer setup, troubleshooting, and consulting services.",
     "serviceType": [
-      "Computer Setup",
+      "Device Purchasing & Setup",
       "Technology Support",
       "Data Transfer",
       "Security",
+      "Website Design & Development",
+      "Small Business Device Setup",
       "Home Technology Setup",
-      "Website Development",
       "Document Digitization" ],
     "areaServed": [
       "Kitchener",
@@ -384,6 +385,20 @@
       max-width: 720px;
     }
 
+    .services-group-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--crimson);
+      font-weight: 600;
+      max-width: 720px;
+      margin: 2.5rem 0 0.75rem;
+    }
+
+    .services-header + .services-group-label {
+      margin-top: 0;
+    }
+
     .services-list li {
       border-bottom: 1px solid var(--border);
     }
@@ -694,22 +709,15 @@
       <p class="section-eyebrow">What We Do</p>
       <h2 class="section-title">Services built around you</h2>
     </div>
+
+    <p class="services-group-label fade-in">General Tech Support</p>
     <ul class="services-list">
       <li class="fade-in">
-        <a class="service-link" href="contact.html?service=Help%20Purchasing%20A%20New%20Device" aria-label="Ask about Help Purchasing A New Device">
+        <a class="service-link" href="contact.html?service=Device%20Purchasing%20%26%20Setup" aria-label="Ask about Device Purchasing & Setup">
           <span class="service-arrow">→</span>
           <div class="service-list-content">
-            <h3>Help Purchasing A New Device</h3>
-            <p>Expert guidance before you buy — we'll find the right fit for your needs and budget.</p>
-          </div>
-        </a>
-      </li>
-      <li class="fade-in">
-        <a class="service-link" href="contact.html?service=Setting%20Up%20A%20New%20Device" aria-label="Ask about Setting Up A New Device">
-          <span class="service-arrow">→</span>
-          <div class="service-list-content">
-            <h3>Setting Up A New Device</h3>
-            <p>Configured just the way you want it — accounts, apps, and preferences all sorted.</p>
+            <h3>Device Purchasing &amp; Setup</h3>
+            <p>From choosing the right device to getting it running exactly how you like it — accounts, apps, and preferences all sorted.</p>
           </div>
         </a>
       </li>
@@ -740,6 +748,32 @@
           </div>
         </a>
       </li>
+    </ul>
+
+    <p class="services-group-label fade-in">For Your Business</p>
+    <ul class="services-list">
+      <li class="fade-in">
+        <a class="service-link" href="contact.html?service=Website%20Design%20%26%20Development" aria-label="Ask about Website Design & Development">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A fast, professional website for your business — built lean and hosted for speed, security, and uptime.</p>
+          </div>
+        </a>
+      </li>
+      <li class="fade-in">
+        <a class="service-link" href="contact.html?service=Small%20Business%20Device%20Setup" aria-label="Ask about Small Business Device Setup">
+          <span class="service-arrow">→</span>
+          <div class="service-list-content">
+            <h3>Small Business Device Setup</h3>
+            <p>Getting your small business properly equipped — the right hardware, set up right, from day one.</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <p class="services-group-label fade-in">Home &amp; Family</p>
+    <ul class="services-list">
       <li class="fade-in">
         <a class="service-link" href="contact.html?service=Document%20Digitization" aria-label="Ask about Document Digitization">
           <span class="service-arrow">→</span>
@@ -759,6 +793,7 @@
         </a>
       </li>
     </ul>
+
     <div class="services-footer fade-in">
       <a href="services.html" class="btn-primary">View Full Service Details</a>
       <a href="contact.html" class="btn-secondary">Not sure? Just ask →</a>
