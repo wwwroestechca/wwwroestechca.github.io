@@ -568,7 +568,13 @@
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-right { height: 50vw; }
+      .hero-right { height: auto; overflow: visible; padding-bottom: 1.25rem; }
+      .hero-right img { height: 280px; }
+      .hero-badge {
+        position: static;
+        margin: 1rem 1.25rem 0;
+        max-width: none;
+      }
       .hero-left { padding: 4rem 6%; }
       .about { grid-template-columns: 1fr; }
       .about-images { height: 55vw; }
